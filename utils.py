@@ -88,6 +88,7 @@ def textBlurBackground(img, text, font, fontScale, textPos, textThickness=1,text
     cv.putText(img,text, textPos,font, fontScale, textColor,textThickness )          
     # cv.imshow('blur roi', blur_roi)
     # cv.imshow('blured', img)
+
     return img
 
 def fillPolyTrans(img, points, color, opacity):
@@ -102,16 +103,25 @@ def fillPolyTrans(img, points, color, opacity):
     overlay = img.copy()  # coping the image
     cv.fillPoly(overlay,[list_to_np_array], color )
     new_img = cv.addWeighted(overlay, opacity, img, 1 - opacity, 0)
-    print(points_list)
+    # print(points_list)
     img = new_img
-    return img
 
+    return img
+def rectTrans(img, pt1, pt2, color, thickness, opacity):
+
+    overlay = img.copy()
+    cv.rectangle(overlay, pt1, pt2, color, thickness)
+    new_img = cv.addWeighted(overlay, opacity, img, 1 - opacity, 0) # overlaying the rectangle on the image.
+    img = new_img
+
+    return img
 
 def main():
     cap = cv.VideoCapture(0)
     while True:
         success, img = cap.read()
         # img = np.zeros((1000,1000, 3), dtype=np.uint8)
+        img=rectTrans(img, pt1=(30, 320), pt2=(160, 260), color=(0,255,255),thickness=-1, opacity=0.6)
         img =fillPolyTrans(img=img, points=points_list, color=(0,255,0), opacity=.5)
         drawColor(img, [BLACK,WHITE ,BLUE,RED,CYAN,YELLOW,MAGENTA,GRAY ,GREEN,PURPLE,ORANGE,PINK])
         textBlurBackground(img, 'Blured Background Text', cv.FONT_HERSHEY_COMPLEX, 0.8, (60, 140),2, GREEN, (71,71), 13, 13)
