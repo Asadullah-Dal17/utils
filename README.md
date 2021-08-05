@@ -25,6 +25,10 @@ The function, calculates the size of input Text and apply some padding (x,y), wh
 
 ```
 
+### *Out Above Function*
+
+![output](https://user-images.githubusercontent.com/66181793/128294567-046e6fca-3c59-4104-882e-52499cb9d871.png)
+
 
 
 
