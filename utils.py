@@ -1,5 +1,36 @@
+'''
+
+Author: Asadullah Dal 
+Youtube Channel: https://www.youtube.com/c/aiphile
+
+'''
+
 import cv2 as cv 
 import numpy as np
+
+# colors 
+# values =(blue, green, red) opencv accepts BGR values not RGB
+BLACK = (0,0,0)
+WHITE = (255,255,255)
+BLUE = (255,0,0)
+RED = (0,0,255)
+CYAN = (255,255,0)
+YELLOW =(0,255,255)
+MAGENTA = (255,0,255)
+GRAY = (128,128,128)
+GREEN = (0,255,0)
+PURPLE = (128,0,128)
+ORANGE = (0,165,255)
+PINK = ((147,20,255))
+
+def drawColor(img, colors):
+    x, y = 10,2
+    w, h = 40, 40
+    for color in colors:
+        x += w+5 
+        # y += 10 
+        cv.rectangle(img, (x, y ), (x+w, y+h), color, -1)
+    
 
 def textWithBackground(img, text, font, fontScale, textPos, textThickness=1,textColor=(0,255,0), bgColor=(0,0,0), pad_x=3, pad_y=3, bgOpacity=0.5):
     """
@@ -30,8 +61,7 @@ def textWithBackground(img, text, font, fontScale, textPos, textThickness=1,text
 
 
 def textBlurBackground(img, text, font, fontScale, textPos, textThickness=1,textColor=(0,255,0),kneral=(33,33) , pad_x=3, pad_y=3):
-    """
-    
+    """    
     Draw text with background blured,  control the blur value, with kernal(odd, odd)
     @param img:(mat) which you want to draw text
     @param text: (string) text you want draw
@@ -58,13 +88,16 @@ def textBlurBackground(img, text, font, fontScale, textPos, textThickness=1,text
     # cv.imshow('blured', img)
     return img
 
+
+
 def main():
     cap = cv.VideoCapture(0)
     while True:
         success, img = cap.read()
-        textBlurBackground(img, 'Blured Background Text', cv.FONT_HERSHEY_COMPLEX, 1.4, (60, 140),3, (0,255, 0), (71,71), 13, 13)
-        img=textWithBackground(img, 'Colored Background Texts', cv.FONT_HERSHEY_COMPLEX, 1.6, (60,70), textThickness=3, bgColor=(0,255,0), textColor=(0,0, 0), bgOpacity=0.5, pad_x=10, pad_y=10)
-        imgGray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+        drawColor(img, [BLACK,WHITE ,BLUE,RED,CYAN,YELLOW,MAGENTA,GRAY ,GREEN,PURPLE,ORANGE,PINK])
+        textBlurBackground(img, 'Blured Background Text', cv.FONT_HERSHEY_COMPLEX, 0.8, (60, 140),2, GREEN, (71,71), 13, 13)
+        img=textWithBackground(img, 'Colored Background Texts', cv.FONT_HERSHEY_SIMPLEX, 0.8, (60,80), textThickness=2, bgColor=GREEN, textColor=BLACK, bgOpacity=0.7, pad_x=6, pad_y=6)
+        # imgGray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
         cv.imshow('img', img)
         if cv.waitKey(1) ==ord('q'):
             break
