@@ -90,12 +90,18 @@ def textBlurBackground(img, text, font, fontScale, textPos, textThickness=1,text
     # cv.imshow('blured', img)
     return img
 
-def fillPolyTrans(img, points, color, bgOpacity):
-
+def fillPolyTrans(img, points, color, opacity):
+    """
+    @param img: (mat) input image, where shape is drawn.
+    @param points: list [tuples(int, int) these are the points custom shape,FillPoly
+    @param color: (tuples (int, int, int)
+    @param opacity:  it is tranparency of image.
+    @return:(mat) image with draw shape, with specified points
+    """
     list_to_np_array = np.array(points, dtype=np.int32)
     overlay = img.copy()  # coping the image
     cv.fillPoly(overlay,[list_to_np_array], color )
-    new_img = cv.addWeighted(overlay, bgOpacity, img, 1 - bgOpacity, 0)
+    new_img = cv.addWeighted(overlay, opacity, img, 1 - opacity, 0)
     print(points_list)
     img = new_img
     return img
@@ -106,7 +112,7 @@ def main():
     while True:
         success, img = cap.read()
         # img = np.zeros((1000,1000, 3), dtype=np.uint8)
-        img =fillPolyTrans(img, points_list, (0,255,0), 0.5)
+        img =fillPolyTrans(img=img, points=points_list, color=(0,255,0), opacity=.5)
         drawColor(img, [BLACK,WHITE ,BLUE,RED,CYAN,YELLOW,MAGENTA,GRAY ,GREEN,PURPLE,ORANGE,PINK])
         textBlurBackground(img, 'Blured Background Text', cv.FONT_HERSHEY_COMPLEX, 0.8, (60, 140),2, GREEN, (71,71), 13, 13)
         img=textWithBackground(img, 'Colored Background Texts', cv.FONT_HERSHEY_SIMPLEX, 0.8, (60,80), textThickness=2, bgColor=GREEN, textColor=BLACK, bgOpacity=0.7, pad_x=6, pad_y=6)
@@ -115,5 +121,6 @@ def main():
         cv.imshow('img', img)
         if cv.waitKey(1) ==ord('q'):
             break
+
 if __name__ == "__main__":
     main()

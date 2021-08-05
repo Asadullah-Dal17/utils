@@ -40,3 +40,11 @@ The function, calculates the size of input Text and apply some padding (x,y), wh
 
 <img src='/images/color_image.png' width='800'>
 
+### Ploy Fill with Transparency
+Draw any Shape with Transparency, the function is similar to Opencv PolyFill, just it takes a list of tuples, instead of numpy array,
+here you have option to control the Transparency of shape as well, 
+
+```python
+img =fillPolyTrans(img=img, points=points_list, color=(0,255,0), opacity=.5)
+
+```
