@@ -96,8 +96,9 @@ def fillPolyTrans(img, points, color, opacity):
     @param img: (mat) input image, where shape is drawn.
     @param points: list [tuples(int, int) these are the points custom shape,FillPoly
     @param color: (tuples (int, int, int)
-    @param opacity:  it is tranparency of image.
-    @return:(mat) image with draw shape, with specified points
+    @param opacity:  it is transparency of image.
+    @return: img(mat) image with rectangle draw.
+
     """
     list_to_np_array = np.array(points, dtype=np.int32)
     overlay = img.copy()  # coping the image
@@ -108,7 +109,16 @@ def fillPolyTrans(img, points, color, opacity):
 
     return img
 def rectTrans(img, pt1, pt2, color, thickness, opacity):
+    """
 
+    @param img: (mat) input image, where shape is drawn.
+    @param pt1: tuple(int,int) it specifies the starting point(x,y) os rectangle
+    @param pt2: tuple(int,int)  it nothing but width and height of rectangle
+    @param color: (tuples (int, int, int), it tuples of BGR values
+    @param thickness: it thickness of board line rectangle, if (-1) passed then rectangle will be fulled with color.
+    @param opacity:  it is transparency of image.
+    @return:
+    """
     overlay = img.copy()
     cv.rectangle(overlay, pt1, pt2, color, thickness)
     new_img = cv.addWeighted(overlay, opacity, img, 1 - opacity, 0) # overlaying the rectangle on the image.
