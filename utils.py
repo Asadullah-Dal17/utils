@@ -22,7 +22,7 @@ GREEN = (0,255,0)
 PURPLE = (128,0,128)
 ORANGE = (0,165,255)
 PINK = (147,20,255)
-
+points_list =[(200, 300), (150, 150), (400, 200)]
 def drawColor(img, colors):
     x, y = 0,10
     w, h = 20, 30
@@ -90,13 +90,23 @@ def textBlurBackground(img, text, font, fontScale, textPos, textThickness=1,text
     # cv.imshow('blured', img)
     return img
 
+def fillPolyTrans(img, points, color, bgOpacity):
+
+    list_to_np_array = np.array(points, dtype=np.int32)
+    overlay = img.copy()  # coping the image
+    cv.fillPoly(overlay,[list_to_np_array], color )
+    new_img = cv.addWeighted(overlay, bgOpacity, img, 1 - bgOpacity, 0)
+    print(points_list)
+    img = new_img
+    return img
 
 
 def main():
     cap = cv.VideoCapture(0)
     while True:
         success, img = cap.read()
-        # img = np.zeros((125,625, 3), dtype=np.uint8)
+        # img = np.zeros((1000,1000, 3), dtype=np.uint8)
+        img =fillPolyTrans(img, points_list, (0,255,0), 0.5)
         drawColor(img, [BLACK,WHITE ,BLUE,RED,CYAN,YELLOW,MAGENTA,GRAY ,GREEN,PURPLE,ORANGE,PINK])
         textBlurBackground(img, 'Blured Background Text', cv.FONT_HERSHEY_COMPLEX, 0.8, (60, 140),2, GREEN, (71,71), 13, 13)
         img=textWithBackground(img, 'Colored Background Texts', cv.FONT_HERSHEY_SIMPLEX, 0.8, (60,80), textThickness=2, bgColor=GREEN, textColor=BLACK, bgOpacity=0.7, pad_x=6, pad_y=6)
