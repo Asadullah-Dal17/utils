@@ -59,3 +59,19 @@ This function allows to draw a rectangle with transparency, similar to opencv re
         img=rectTrans(img, pt1=(30, 320), pt2=(160, 260), color=(0,255,255),thickness=-1, opacity=0.6)
 
 ```
+
+
+I have youtube Channel with subscribers ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCc8Lx22a5OX4XMxrCykzjbA?style=social), If you can increase that counter, go a head do this for me 😃, just kidding as always ;-)  [AiPhle](https://youtube.come/c/aiphle) is all about Computer Vision, AI and Electronics.
+
+hope you found this helpful,  if you want to ask me any thing then here are my social medias. 
+
+## :green_heart: Join Me on Social Media :green_heart:
+
+<a href="https://www.youtube.com/c/aiphile"> <img alt="AiPhile Youtube" src="/icons/youtube-icon.png"  width="40" height="40"></a>
+<a href="https://www.facebook.com/AIPhile17">
+<img alt="AiPhile Facebook" src="icons/face-book-icon.png"  width="40" height="40">
+</a>
+<a href="https://www.instagram.com/aiphile17/"> <img alt="AiPhile Insta" src="icons/instagram-icon.png"  width="40" height="40">
+</a>
+<a href="https://github.com/Asadullah-Dal17"> <img alt="Github" src="icons/github-icon.png"  width="40" height="40">
+</a>
