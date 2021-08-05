@@ -45,6 +45,17 @@ Draw any Shape with Transparency, the function is similar to Opencv PolyFill, ju
 here you have option to control the Transparency of shape as well, 
 
 ```python
+# call the function
 img =fillPolyTrans(img=img, points=points_list, color=(0,255,0), opacity=.5)
+
+```
+
+### rectTrans 
+
+This function allows to draw a rectangle with transparency, similar to opencv rectangle it has opacity 
+
+```python
+    # call the function.
+        img=rectTrans(img, pt1=(30, 320), pt2=(160, 260), color=(0,255,255),thickness=-1, opacity=0.6)
 
 ```
