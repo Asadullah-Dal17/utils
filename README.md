@@ -1,9 +1,9 @@
 # utils
-> These are the helping function, which will help to avoid reparation of code, 
+> These are the helping function, which will help to avoid reparation of code, this it will allow to draw shapes, text, with more prettier way, since we don't have many option opencv, to control the transparency of shape, or draw text with background, just use this, function, and you are good to go. 
 
 ## Opencv Text Beautification
 ---
-### Text With Background color,having controlled Transparency.
+### textWithBackground
 
 This function Calculates the size of text, using opencv Function, getTextSize, on the base of height and width, we add here the extra padding(x,y) to increase the background, to look it more decent.
 
@@ -15,7 +15,7 @@ img=textWithBackground(img, 'Colored Background Texts', cv.FONT_HERSHEY_COMPLEX,
 
 ```
 ---
-### Draw Text with Blurred background 
+###  textBlurBackground
 
 The function, calculates the size of input Text and apply some padding (x,y), which is decidable, apply blur to the ROI, and Draws Text upon the blurred background.
 
@@ -25,7 +25,7 @@ The function, calculates the size of input Text and apply some padding (x,y), wh
 
 ```
 ---
-### *Results Above Function*
+### *Results of Above Function*
 ---
 
 ![output](https://user-images.githubusercontent.com/66181793/128294567-046e6fca-3c59-4104-882e-52499cb9d871.png)
@@ -40,7 +40,9 @@ The function, calculates the size of input Text and apply some padding (x,y), wh
 
 <img src='/images/color_image.png' width='800'>
 
-### Ploy Fill with Transparency
+## Draw shapes with Transparency
+
+### fillPolyTrans
 Draw any Shape with Transparency, the function is similar to Opencv PolyFill, just it takes a list of tuples, instead of numpy array,
 here you have option to control the Transparency of shape as well, 
 
@@ -60,6 +62,7 @@ This function allows to draw a rectangle with transparency, similar to opencv re
 
 ```
 
+this Repository will be updated on regular interval, here I have write code to avoid repeating of code, so I thought it would be great to share with other people, I have blog as will, you get more details of this, blog post.
 
 I have youtube Channel with subscribers ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCc8Lx22a5OX4XMxrCykzjbA?style=social), If you can increase that counter, go a head do this for me 😃, just kidding as always ;-)  [AiPhle](https://youtube.come/c/aiphle) is all about Computer Vision, AI and Electronics.
 
