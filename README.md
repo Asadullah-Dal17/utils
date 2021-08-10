@@ -1,6 +1,8 @@
 # utils
 > These are the helping function, which will help to avoid reparation of code, this it will allow to draw shapes, text, with more prettier way, since we don't have many option opencv, to control the transparency of shape, or draw text with background, just use this, function, and you are good to go. 
 
+#### [Blog Post for more details](https://aiphile.blogspot.com/2021/08/draw-transparent-shape-text-with.html)
+---
 ## Opencv Text Beautification
 ---
 ### textWithBackground
